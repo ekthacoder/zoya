@@ -1,137 +1,141 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>For Silu ❤️</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Silu ❤️</title>
 
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: "Poppins", sans-serif;
-            background: #fff5fb;
-            color: #333;
-            overflow-x: hidden;
-        }
+<style>
+    body {
+        margin: 0;
+        background: #fff5fb;
+        font-family: "Poppins", sans-serif;
+        text-align: center;
+    }
 
-        .container {
-            text-align: center;
-            padding: 30px 20px;
-            max-width: 500px;
-            margin: auto;
-        }
+    .container {
+        max-width: 500px;
+        margin: auto;
+        padding: 20px;
+    }
 
-        h1 {
-            font-size: 2rem;
-            color: #ff6fa8;
-            margin-bottom: 10px;
-        }
+    h1 {
+        font-size: 2.3rem;
+        color: #ff6fa8;
+        margin-top: 30px;
+    }
 
-        p {
-            font-size: 1rem;
-            line-height: 1.6;
-        }
+    .subtitle {
+        color: #444;
+        font-size: 1.1rem;
+        margin-bottom: 20px;
+    }
 
-        .cute-img {
-            width: 130px;
-            margin: 10px auto;
-            display: block;
-        }
+    .cute-img {
+        width: 180px;
+        margin: 20px 0;
+        animation: float 3s ease-in-out infinite;
+    }
 
-        .btn {
-            background: #ffb6d9;
-            padding: 12px 25px;
-            border: none;
-            border-radius: 30px;
-            font-size: 1rem;
-            color: #fff;
-            margin-top: 20px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
+    @keyframes float {
+        0% { transform: translateY(0); }
+        50% { transform: translateY(-10px); }
+        100% { transform: translateY(0); }
+    }
 
-        .btn:hover {
-            background: #ff8fca;
-            transform: scale(1.05);
-        }
+    .btn {
+        background: #ff96c9;
+        color: white;
+        border: none;
+        padding: 12px 20px;
+        border-radius: 25px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        margin-top: 10px;
+        box-shadow: 0 4px 8px rgba(255, 138, 180, 0.5);
+        transition: 0.3s;
+    }
 
-        #messageBox {
-            margin-top: 25px;
-            padding: 18px;
-            background: #ffffffd8;
-            border-radius: 15px;
-            line-height: 1.7;
-            font-size: 1rem;
-            color: #444;
-            display: none;
-            border: 1px solid #ffd5ec;
-        }
+    .btn:hover {
+        background: #ff7ab5;
+        transform: scale(1.05);
+    }
 
-        .butterfly {
-            position: absolute;
-            width: 40px;
-            opacity: 0.7;
-            animation: fly 6s infinite linear;
-        }
+    #loveMessage {
+        opacity: 0;
+        margin-top: 25px;
+        background: white;
+        padding: 18px;
+        border-radius: 15px;
+        font-size: 1.1rem;
+        color: #444;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        transition: opacity 1s ease;
+    }
 
-        @keyframes fly {
-            from {transform: translateY(0px);}
-            to {transform: translateY(-60px);}
-        }
+    .butterfly {
+        position: absolute;
+        width: 45px;
+        top: -60px;
+        animation: fly 7s linear infinite;
+        opacity: 0.8;
+    }
 
-        /* Random butterfly placements */
-        .b1 { left: 10px; top: 20px; animation-delay: 0s; }
-        .b2 { right: 20px; top: 80px; animation-delay: 1.5s; }
-        .b3 { left: 50px; bottom: 40px; animation-delay: 3s; }
-    </style>
+    @keyframes fly {
+        from { transform: translateY(0) translateX(0); }
+        to { transform: translateY(110vh) translateX(25vw); }
+    }
+</style>
 </head>
+
 <body>
 
-    <!-- Butterflies -->
-    <img src="https://i.ibb.co/HGVRfKc/butterfly.png" class="butterfly b1">
-    <img src="https://i.ibb.co/HGVRfKc/butterfly.png" class="butterfly b2">
-    <img src="https://i.ibb.co/HGVRfKc/butterfly.png" class="butterfly b3">
+<div class="container">
+    <h1>Hi Silu ❤️</h1>
+    <p class="subtitle">A small soft page from your Chintu 🐼✨</p>
 
-    <div class="container">
+    <!-- Panda SVG -->
+    <svg class="cute-img" viewBox="0 0 64 64">
+        <circle cx="32" cy="32" r="30" fill="#fff"/>
+        <circle cx="22" cy="24" r="8" fill="#000"/>
+        <circle cx="42" cy="24" r="8" fill="#000"/>
+        <circle cx="22" cy="25" r="3" fill="#fff"/>
+        <circle cx="42" cy="25" r="3" fill="#fff"/>
+        <circle cx="32" cy="40" r="12" fill="#000"/>
+    </svg>
 
-        <img src="https://i.ibb.co/3pQ5c3v/panda.png" class="cute-img">
-        
-        <h1>Hi Silu ❤️</h1>
+    <button class="btn" onclick="showLove()">Tap Me Silu 💗</button>
 
-        <p>
-            I made something cute for you…  
-            Tap the button below 👇
-        </p>
-
-        <button class="btn" onclick="showMessage()">Tap Me</button>
-
-        <div id="messageBox">
-            Hey my Silu…  
-            <br><br>
-            I don’t always say it, but I want you to know this —  
-            your presence matters to me more than you think.  
-            <br><br>
-            You’re cute, precious, soft-hearted and the most comforting person in my life.  
-            From my best friend to my partner… you are everything.  
-            <br><br>
-            Even in distance, you make me feel close.  
-            Even in silence, you make me feel understood.  
-            <br><br>
-            - Yours, Chintu ❤️
-        </div>
-
-        <img src="https://i.ibb.co/R0tgGQs/teddy.png" class="cute-img">
-
+    <div id="loveMessage">
+        Zoya…  
+        You are my softest emotion.  
+        My panda, my smile, my person.  
+        You matter to me more than distance, time, or anything else.  
+        I love you more than I can ever explain. ❤️  
     </div>
+</div>
 
-    <script>
-        function showMessage() {
-            const box = document.getElementById("messageBox");
-            box.style.display = "block";
-            box.style.animation = "fadeIn 0.7s ease";
-        }
-    </script>
+<!-- Butterfly SVGs -->
+<svg class="butterfly" style="left:10vw; animation-delay:0s" viewBox="0 0 64 64">
+    <path d="M32 32 C10 10, 5 30, 20 40 C5 50, 20 60, 32 45" fill="#ffb7e0"/>
+    <path d="M32 32 C54 10, 59 30, 44 40 C59 50, 44 60, 32 45" fill="#ffb7e0"/>
+</svg>
+
+<svg class="butterfly" style="left:50vw; animation-delay:2s" viewBox="0 0 64 64">
+    <path d="M32 32 C10 10, 5 30, 20 40 C5 50, 20 60, 32 45" fill="#ffc8ea"/>
+    <path d="M32 32 C54 10, 59 30, 44 40 C59 50, 44 60, 32 45" fill="#ffc8ea"/>
+</svg>
+
+<svg class="butterfly" style="left:80vw; animation-delay:4s" viewBox="0 0 64 64">
+    <path d="M32 32 C10 10, 5 30, 20 40 C5 50, 20 60, 32 45" fill="#ffd6f1"/>
+    <path d="M32 32 C54 10, 59 30, 44 40 C59 50, 44 60, 32 45" fill="#ffd6f1"/>
+</svg>
+
+<script>
+function showLove() {
+    document.getElementById("loveMessage").style.opacity = 1;
+}
+</script>
 
 </body>
 </html>
