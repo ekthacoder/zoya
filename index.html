@@ -1,578 +1,137 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>For Silu — A Little Journey</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For Silu ❤️</title>
 
-  <!-- Google font -->
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: "Poppins", sans-serif;
+            background: #fff5fb;
+            color: #333;
+            overflow-x: hidden;
+        }
 
-  <style>
-    :root{
-      --bg1: #fffdfd;              /* white-ish base */
-      --accent1: #ffd6e8;          /* soft pink */
-      --accent2: #f6e7ff;          /* soft lavender */
-      --accent3: #ffeed6;          /* soft peach */
-      --text: #3b2a42;            /* deep warm */
-      --muted: #7b6b7b;
-      --glass: rgba(255,255,255,0.7);
-      --card-shadow: 0 10px 30px rgba(58,24,48,0.12);
-    }
+        .container {
+            text-align: center;
+            padding: 30px 20px;
+            max-width: 500px;
+            margin: auto;
+        }
 
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      font-family:"Quicksand",system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;
-      background: linear-gradient(180deg, var(--accent2) 0%, var(--accent1) 50%, var(--accent3) 100%);
-      color:var(--text);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      padding:24px;
-    }
+        h1 {
+            font-size: 2rem;
+            color: #ff6fa8;
+            margin-bottom: 10px;
+        }
 
-    /* Page card */
-    .card{
-      width:100%;
-      max-width:920px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.85), rgba(255,255,255,0.72));
-      border-radius:20px;
-      box-shadow:var(--card-shadow);
-      padding:18px;
-      position:relative;
-      overflow:hidden;
-      min-height:640px;
-    }
+        p {
+            font-size: 1rem;
+            line-height: 1.6;
+        }
 
-    /* Header */
-    header{
-      display:flex;
-      align-items:center;
-      gap:14px;
-      padding:12px 6px;
-    }
-    .avatar{
-      width:72px;height:72px;border-radius:18px;display:flex;align-items:center;justify-content:center;
-      background:linear-gradient(135deg,#fff,#fff0);
-      border:3px solid rgba(255,255,255,0.8);
-      box-shadow:0 6px 18px rgba(45,20,50,0.09);
-      flex-shrink:0;
-    }
-    .avatar svg{width:56px;height:56px}
+        .cute-img {
+            width: 130px;
+            margin: 10px auto;
+            display: block;
+        }
 
-    .title{
-      font-weight:700;font-size:1.25rem;line-height:1;
-    }
-    .subtitle{color:var(--muted);font-size:0.95rem;margin-top:4px}
+        .btn {
+            background: #ffb6d9;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 30px;
+            font-size: 1rem;
+            color: #fff;
+            margin-top: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
 
-    /* Main layout */
-    .main{
-      display:flex;
-      gap:18px;
-      padding:6px;
-    }
-    @media (max-width:860px){
-      .main{flex-direction:column}
-    }
+        .btn:hover {
+            background: #ff8fca;
+            transform: scale(1.05);
+        }
 
-    /* Left column (scene) */
-    .scene{
-      flex:1;
-      min-height:420px;
-      position:relative;
-      border-radius:14px;
-      overflow:visible;
-      padding:18px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
+        #messageBox {
+            margin-top: 25px;
+            padding: 18px;
+            background: #ffffffd8;
+            border-radius: 15px;
+            line-height: 1.7;
+            font-size: 1rem;
+            color: #444;
+            display: none;
+            border: 1px solid #ffd5ec;
+        }
 
-    /* Right column (controls & message) */
-    .panel{
-      width:360px;
-      max-width:38%;
-      padding:16px;
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-      align-items:stretch;
-    }
-    @media (max-width:860px){
-      .panel{width:100%;max-width:100%}
-    }
+        .butterfly {
+            position: absolute;
+            width: 40px;
+            opacity: 0.7;
+            animation: fly 6s infinite linear;
+        }
 
-    .card-box{
-      background:var(--glass);
-      backdrop-filter: blur(6px);
-      border-radius:12px;
-      padding:12px;
-      box-shadow:0 6px 14px rgba(0,0,0,0.05);
-    }
+        @keyframes fly {
+            from {transform: translateY(0px);}
+            to {transform: translateY(-60px);}
+        }
 
-    .controls{display:flex;flex-direction:column;gap:10px}
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;
-      gap:10px;padding:12px 14px;border-radius:12px;border:none;cursor:pointer;
-      font-weight:600;font-size:0.98rem;
-      transition:transform .18s ease, box-shadow .18s ease;
-      box-shadow:0 6px 18px rgba(75,20,60,0.06);
-      background:linear-gradient(180deg,#ffffff,#fff3f8);
-      color:var(--text);
-    }
-    .btn:active{transform:translateY(2px)}
-    .btn.ghost{
-      background:transparent;border:2px dashed rgba(60,30,60,0.06);
-      box-shadow:none;font-weight:700;
-    }
-    .row{display:flex;gap:10px}
-    .small{font-size:0.88rem;padding:8px 10px;border-radius:10px}
-
-    /* Cute scene inner */
-    .scene-inner{
-      width:100%;max-width:560px;height:420px;border-radius:12px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.5), rgba(255,255,255,0.25));
-      display:flex;flex-direction:column;align-items:center;justify-content:center;
-      position:relative;overflow:hidden;padding:18px;
-      border:1px solid rgba(255,255,255,0.6);
-    }
-
-    /* Ground (flowers) */
-    .ground{
-      position:absolute;left:0;right:0;bottom:0;height:20%;
-      display:flex;align-items:flex-end;justify-content:center;gap:6px;
-      pointer-events:none;
-    }
-    .flower{
-      width:26px;height:40px;background:transparent;
-      transform-origin:center bottom;
-      opacity:0.95;
-    }
-
-    /* Floating elements: hearts & butterflies */
-    .floaters{position:absolute;inset:0;pointer-events:none;overflow:visible}
-
-    .heart{
-      position:absolute;width:28px;height:28px;
-      transform-origin:center center;
-      opacity:0.95;
-    }
-
-    .butterfly{
-      position:absolute;width:54px;height:42px;opacity:0.95;transform-origin:center;
-    }
-
-    /* central characters */
-    .characters{display:flex;gap:28px;align-items:flex-end;z-index:4;position:relative}
-    .panda, .teddy{
-      width:150px;height:180px;border-radius:16px;display:flex;align-items:center;justify-content:center;
-      transform-origin:center bottom;transition:transform .5s cubic-bezier(.2,.9,.3,1);
-      filter:drop-shadow(0 6px 18px rgba(60,30,80,0.08));
-    }
-    .panda svg, .teddy svg{width:140px;height:140px}
-
-    /* Hug animation */
-    .hug{transform:translateY(-8px) scale(1.02)}
-
-    /* Gift box */
-    .gift{
-      position:absolute;right:24px;bottom:24px;width:86px;height:86px;border-radius:12px;
-      display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,#fff,#fff0);
-      border:2px solid rgba(255,255,255,0.7);cursor:pointer;z-index:6;
-    }
-    .gift .lid{position:absolute;top:-8px;left:8px;right:8px;height:34px;background:linear-gradient(180deg,#ffd6e8,#f6e7ff);border-radius:8px;transform-origin:center;transition:transform .4s ease}
-    .gift.open .lid{transform:rotateX(80deg) translateY(-6px)}
-    .gift .ribbon{position:absolute;left:14px;right:14px;height:8px;top:34px;background:#ff9fc3;border-radius:6px;box-shadow:0 4px 8px rgba(230,80,140,0.12)}
-
-    /* letter reveal */
-    .letter{
-      position:absolute;left:50%;transform:translateX(-50%);top:22%;z-index:9;
-      width:86%;max-width:520px;background:#fff;border-radius:12px;padding:18px;
-      box-shadow:0 12px 36px rgba(40,20,60,0.12);border:1px solid rgba(0,0,0,0.04);
-      transform-origin:center top;opacity:0;pointer-events:none;
-    }
-    .letter.show{opacity:1;pointer-events:auto;animation:popIn .48s cubic-bezier(.2,.9,.3,1) both}
-    @keyframes popIn{
-      from{transform:translateX(-50%) translateY(-18px) scale(.98);opacity:0}
-      to{transform:translateX(-50%) translateY(0) scale(1);opacity:1}
-    }
-    .letter h3{margin:0;font-size:1.2rem}
-    .letter p{margin-top:10px;color:#5b475b;line-height:1.5;font-size:0.98rem}
-
-    /* Floating butterflies animation using CSS keyframes dynamic positions */
-    @keyframes floatY { 0%{transform:translateY(0)}50%{transform:translateY(-12px)}100%{transform:translateY(0)} }
-    .butterfly.wiggle{animation:floatY 3s ease-in-out infinite}
-
-    /* Hearts drift (we will spawn many with JS) */
-    @keyframes driftUp {
-      0%{transform:translateY(0) scale(.9) rotate(0);opacity:0}
-      10%{opacity:1}
-      100%{transform:translateY(-380px) scale(1.1) rotate(18deg);opacity:0}
-    }
-
-    /* subtle sparkles */
-    .sparkle{position:absolute;width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.9);box-shadow:0 0 8px rgba(255,255,255,0.8)}
-
-    /* footer note */
-    .small-note{font-size:0.85rem;color:var(--muted);text-align:center;margin-top:10px}
-
-    /* message area */
-    .message{
-      padding:12px;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.95),rgba(255,255,255,0.9));
-      box-shadow:0 8px 20px rgba(50,20,60,0.05);
-      min-height:120px;
-    }
-
-    /* tiny hearts inside text */
-    .red{color:#ff4376;font-weight:700}
-  </style>
+        /* Random butterfly placements */
+        .b1 { left: 10px; top: 20px; animation-delay: 0s; }
+        .b2 { right: 20px; top: 80px; animation-delay: 1.5s; }
+        .b3 { left: 50px; bottom: 40px; animation-delay: 3s; }
+    </style>
 </head>
 <body>
-  <div class="card" role="main" aria-labelledby="page-title">
-    <header>
-      <div class="avatar" aria-hidden="true">
-        <!-- small heart avatar -->
-        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-          <path d="M12 20s-7-4.8-9.1-7.1C.9 10.7 3.1 6 7.4 6 9.4 6 12 7.9 12 7.9s2.6-1.9 4.6-1.9c4.3 0 6.5 4.7 4.5 6.9C19 15.2 12 20 12 20z" fill="#ff9fc3"/>
-        </svg>
-      </div>
-      <div>
-        <div class="title" id="page-title">For Silu — a little love journey</div>
-        <div class="subtitle">From Chintu — gentle, soft, true</div>
-      </div>
-    </header>
 
-    <div class="main">
-      <!-- Left: scene -->
-      <div class="scene">
-        <div class="scene-inner" id="scene-inner" aria-live="polite">
-          <div class="floaters" id="floaters"></div>
+    <!-- Butterflies -->
+    <img src="https://i.ibb.co/HGVRfKc/butterfly.png" class="butterfly b1">
+    <img src="https://i.ibb.co/HGVRfKc/butterfly.png" class="butterfly b2">
+    <img src="https://i.ibb.co/HGVRfKc/butterfly.png" class="butterfly b3">
 
-          <div class="characters" id="characters">
-            <!-- Panda -->
-            <div class="panda" id="panda" title="Cute panda">
-              <!-- simple panda SVG -->
-              <svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-                <g transform="translate(0,-32)">
-                  <ellipse cx="160" cy="220" rx="90" ry="72" fill="#fff"/>
-                  <path d="M80 120c-28-28-8-72 12-80 28-10 48 10 56 26 8-16 28-36 56-26 20 8 40 52 12 80-8 8-6 68-32 80-10 4-16 2-24 0-8 2-14 4-24 0-26-12-24-72-32-80z" fill="#000"/>
-                  <circle cx="132" cy="120" r="20" fill="#000"/>
-                  <circle cx="188" cy="120" r="20" fill="#000"/>
-                  <circle cx="132" cy="126" r="8" fill="#fff"/>
-                  <circle cx="188" cy="126" r="8" fill="#fff"/>
-                  <ellipse cx="160" cy="158" rx="30" ry="20" fill="#000"/>
-                  <path d="M140 190 q20 30 40 0" stroke="#4b2b4b" stroke-width="6" fill="none" stroke-linecap="round"/>
-                </g>
-              </svg>
-            </div>
+    <div class="container">
 
-            <!-- Teddy -->
-            <div class="teddy" id="teddy" title="Teddy says hi">
-              <svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-                <g transform="translate(0,-20)">
-                  <ellipse cx="160" cy="200" rx="78" ry="64" fill="#f6d7b9"/>
-                  <circle cx="116" cy="120" r="34" fill="#f6d7b9"/>
-                  <circle cx="204" cy="120" r="34" fill="#f6d7b9"/>
-                  <circle cx="116" cy="124" r="10" fill="#3b2a42"/>
-                  <circle cx="204" cy="124" r="10" fill="#3b2a42"/>
-                  <ellipse cx="160" cy="156" rx="26" ry="16" fill="#5b3e3e"/>
-                  <path d="M140 188 q20 28 40 0" stroke="#4b2b4b" stroke-width="5" fill="none" stroke-linecap="round"/>
-                  <rect x="140" y="142" width="40" height="40" rx="10" fill="#fff4e6" transform="rotate(-15 160 162)"/>
-                </g>
-              </svg>
-            </div>
-          </div>
+        <img src="https://i.ibb.co/3pQ5c3v/panda.png" class="cute-img">
+        
+        <h1>Hi Silu ❤️</h1>
 
-          <!-- Gift box -->
-          <div class="gift" id="gift" role="button" aria-label="Open gift">
-            <div class="lid"></div>
-            <div class="ribbon" aria-hidden="true"></div>
-            <svg viewBox="0 0 24 24" width="48" height="48" aria-hidden>
-              <path fill="#ff9fc3" d="M12 2l2.5 5L20 8l-4 3 1 6-5-3-5 3 1-6L4 8l5.5-.9z"></path>
-            </svg>
-          </div>
+        <p>
+            I made something cute for you…  
+            Tap the button below 👇
+        </p>
 
-          <!-- Letter (hidden until opened) -->
-          <div class="letter" id="letter" aria-hidden="true">
-            <h3>For Silu —</h3>
-            <p id="letter-text">
-              <!-- default message, will be filled by JS -->
-            </p>
-            <div style="text-align:right;margin-top:12px;color:#7b6b7b;font-weight:700">— Chintu</div>
-          </div>
+        <button class="btn" onclick="showMessage()">Tap Me</button>
 
-          <!-- Ground flowers (decorative) -->
-          <div class="ground" aria-hidden="true" id="ground">
-            <!-- flowers created by JS -->
-          </div>
-        </div>
-      </div>
-
-      <!-- Right: controls & messages -->
-      <aside class="panel">
-        <div class="card-box">
-          <div style="display:flex;align-items:center;justify-content:space-between">
-            <div>
-              <div style="font-weight:700">Make her smile</div>
-              <div style="font-size:0.9rem;color:var(--muted)">Little moments, big feelings</div>
-            </div>
-            <div style="text-align:right;color:var(--muted);font-weight:700">Silu ♥ Chintu</div>
-          </div>
-
-          <div style="margin-top:12px" class="controls">
-            <button class="btn" id="btn-hug" title="Make teddy hug">🤗 Give a teddy hug</button>
-            <div class="row">
-              <button class="btn small" id="btn-butterflies" title="Release butterflies">🦋 Release butterflies</button>
-              <button class="btn small ghost" id="btn-hearts" title="Send floating hearts">💖 Send hearts</button>
-            </div>
-            <button class="btn" id="btn-open" title="Open the gift">🎁 Open the little gift</button>
-            <button class="btn ghost" id="btn-reset" title="Reset scene">🔄 Reset</button>
-          </div>
+        <div id="messageBox">
+            Hey my Silu…  
+            <br><br>
+            I don’t always say it, but I want you to know this —  
+            your presence matters to me more than you think.  
+            <br><br>
+            You’re cute, precious, soft-hearted and the most comforting person in my life.  
+            From my best friend to my partner… you are everything.  
+            <br><br>
+            Even in distance, you make me feel close.  
+            Even in silence, you make me feel understood.  
+            <br><br>
+            - Yours, Chintu ❤️
         </div>
 
-        <div class="card-box message" aria-live="polite" id="messageArea">
-          <!-- message area that changes -->
-          <div id="msgTitle" style="font-weight:700;font-size:1.04rem">A journey of small beautiful things</div>
-          <div id="msgText" style="color:var(--muted);margin-top:8px">
-            Click the buttons to reveal little moments — a teddy hug, fluttering butterflies, and a tiny letter from me to you.
-          </div>
-        </div>
+        <img src="https://i.ibb.co/R0tgGQs/teddy.png" class="cute-img">
 
-        <div class="small-note">Tip: Tap the gift to open the letter. Try the hug and butterflies too 💌</div>
-      </aside>
     </div>
 
-    <div style="text-align:center;padding:10px" class="small-note">Made with care for Zoya (Silu). Keep it private and sweet.</div>
-  </div>
-
-  <script>
-    /* -------------------------
-       Helper utilities & DOM
-       ------------------------- */
-    const panda = document.getElementById('panda');
-    const teddy = document.getElementById('teddy');
-    const gift = document.getElementById('gift');
-    const letter = document.getElementById('letter');
-    const floaters = document.getElementById('floaters');
-    const ground = document.getElementById('ground');
-    const msgTitle = document.getElementById('msgTitle');
-    const msgText = document.getElementById('msgText');
-    const letterText = document.getElementById('letter-text');
-
-    // Personalised letter text (you can edit later)
-    const loveMessage = `Silu, you are the soft piece of calm I carry in my day. 
-    When distance tries to make the world heavy, your smile makes everything light again.
-    I love the way you listen, the quiet strength you hold, and the little ways you are kind.
-    You are not just my partner — you are my best friend, my home, my favourite small forever.
-    Keep being you. I notice you. I need you. I love you.`;
-
-    // initial letter content
-    letterText.innerText = loveMessage;
-
-    /* -------------------------
-       Scene setup: flowers & sparkles
-       ------------------------- */
-    function createFlower() {
-      const f = document.createElement('div');
-      f.className = 'flower';
-      f.innerHTML = `
-        <svg viewBox="0 0 64 80" width="36" height="60" aria-hidden>
-          <g transform="translate(0,0)">
-            <path d="M32 12c6-12 18-12 26 0 6 10-2 26-12 30-4 2-6 2-6 2s-2 0-6-2c-10-4-18-20-12-30 8-12 20-12 26 0z" fill="#ffd6e8"/>
-            <circle cx="32" cy="20" r="8" fill="#fff"/>
-            <rect x="30" y="48" width="4" height="32" rx="2" fill="#8fcf7e"/>
-          </g>
-        </svg>
-      `;
-      return f;
-    }
-
-    for(let i=0;i<9;i++){
-      const fl = createFlower();
-      fl.style.transform = `translateY(${(Math.random()*10)}px) scale(${0.9 + Math.random()*0.25})`;
-      fl.style.marginLeft = `${i*6}px`;
-      ground.appendChild(fl);
-    }
-
-    /* -------------------------
-       Floating hearts spawn
-       ------------------------- */
-    function spawnHeart(x, y) {
-      const h = document.createElement('div');
-      h.className='heart';
-      // heart svg
-      const hue = Math.floor(320 - Math.random()*40);
-      h.innerHTML = `<svg viewBox="0 0 24 24" width="36" height="36" xmlns="http://www.w3.org/2000/svg">
-        <path fill="hsl(${hue} 85% 62%)" d="M12 21s-7-4.8-9.1-7.1C.9 10.7 3.1 6 7.4 6 9.4 6 12 7.9 12 7.9s2.6-1.9 4.6-1.9c4.3 0 6.5 4.7 4.5 6.9C19 15.2 12 21 12 21z"/>
-      </svg>`;
-      // position
-      const rect = floaters.getBoundingClientRect();
-      const left = x!==undefined ? x : (Math.random() * (rect.width-40));
-      const top = y!==undefined ? y : (rect.height - 60);
-      h.style.left = `${left}px`;
-      h.style.top = `${top}px`;
-      h.style.opacity = 0;
-      floaters.appendChild(h);
-
-      // animate
-      const dur = 3500 + Math.random()*1800;
-      h.style.animation = `driftUp ${dur}ms linear forwards`;
-      h.style.transform = `scale(${0.9 + Math.random()*0.3}) rotate(${(Math.random()*40)-20}deg)`;
-      // remove after
-      setTimeout(()=> h.remove(), dur + 100);
-    }
-
-    /* -------------------------
-       Butterflies spawn
-       ------------------------- */
-    function spawnButterfly(x, y) {
-      const b = document.createElement('div');
-      b.className = 'butterfly wiggle';
-      b.innerHTML = `<svg viewBox="0 0 200 160" xmlns="http://www.w3.org/2000/svg" aria-hidden>
-        <g transform="translate(0,0)">
-          <path d="M60 60c-30-10-50-30-36-44 14-14 44 8 56 20s15 24 16 28c1-4 6-18 16-28s42-34 56-20c14 14-6 34-36 44-22 8-24 8-32 8s-10 0-32-8z" fill="#ffd6e8" />
-          <path d="M140 60c30-10 50-30 36-44-14-14-44 8-56 20s-15 24-16 28c-1-4-6-18-16-28s-42-34-56-20c-14 14 6 34 36 44 22 8 24 8 32 8s10 0 32-8z" fill="#f6e7ff" />
-          <circle cx="100" cy="84" r="8" fill="#fff"/>
-        </g>
-      </svg>`;
-      const rect = floaters.getBoundingClientRect();
-      const left = x!==undefined ? x : (50 + Math.random() * (rect.width-100));
-      const top = y!==undefined ? y : (70 + Math.random() * (rect.height-160));
-      b.style.left = `${left}px`;
-      b.style.top = `${top}px`;
-      floaters.appendChild(b);
-
-      // float path animation using JS for organic movement
-      const id = setInterval(()=>{
-        const dx = (Math.random()*40)-20;
-        const dy = (Math.random()*18)-8;
-        b.style.transform = `translate(${dx}px, ${dy}px) scale(${0.9 + Math.random()*0.25}) rotate(${(Math.random()*28)-14}deg)`;
-      }, 420);
-
-      // remove after some time
-      setTimeout(()=> {
-        clearInterval(id);
-        b.style.transition = 'opacity .6s';
-        b.style.opacity = 0;
-        setTimeout(()=> b.remove(), 700);
-      }, 7000 + Math.random()*5000);
-    }
-
-    /* -------------------------
-       Buttons behaviour
-       ------------------------- */
-    document.getElementById('btn-hug').addEventListener('click', ()=>{
-      teddy.classList.add('hug');
-      panda.classList.add('hug');
-      showMessage("Teddy gives you a warm hug — soft and steady, like how my heart feels around you.");
-      // spawn hearts around
-      for(let i=0;i<6;i++) setTimeout(()=>spawnHeart(), i*220);
-      setTimeout(()=>{teddy.classList.remove('hug');panda.classList.remove('hug')}, 1600);
-    });
-
-    document.getElementById('btn-hearts').addEventListener('click', ()=>{
-      showMessage("Sending little hearts to you — every beat is thinking of Silu.");
-      for(let i=0;i<14;i++){
-        setTimeout(()=> spawnHeart(), i*140 + Math.random()*200);
-      }
-    });
-
-    document.getElementById('btn-butterflies').addEventListener('click', ()=>{
-      showMessage("Butterflies for the dreamers — gentle, fluttering, and full of small beautiful things.");
-      for(let i=0;i<10;i++){
-        setTimeout(()=> spawnButterfly(), i*250);
-      }
-    });
-
-    // Gift open behaviour (surprise)
-    gift.addEventListener('click', ()=>{
-      if(gift.classList.contains('open')){
-        // already open - toggle letter visibility
-        letter.classList.toggle('show');
-        if(letter.classList.contains('show')) {
-          letter.setAttribute('aria-hidden','false');
-          showMessage("A little letter just for you. Read it slowly, Silu.");
-        } else {
-          letter.setAttribute('aria-hidden','true');
-          showMessage("Letter hidden — but my feelings are still here.");
+    <script>
+        function showMessage() {
+            const box = document.getElementById("messageBox");
+            box.style.display = "block";
+            box.style.animation = "fadeIn 0.7s ease";
         }
-        return;
-      }
+    </script>
 
-      // open for first time
-      gift.classList.add('open');
-      showMessage("Opening a tiny gift — a quiet letter from me to you.");
-      // small pop of butterflies + hearts
-      for(let i=0;i<8;i++){
-        setTimeout(()=> spawnHeart(), i*110);
-        setTimeout(()=> spawnButterfly(), i*160);
-      }
-      // reveal letter after lid opens
-      setTimeout(()=> {
-        letter.classList.add('show');
-        letter.setAttribute('aria-hidden','false');
-        // focus for accessibility
-        letter.scrollIntoView({behavior:'smooth', block:'center'});
-        showMessage("Silu, here's what I wanted to tell you...");
-      }, 700);
-    });
-
-    // Reset scene
-    document.getElementById('btn-reset').addEventListener('click', ()=>{
-      // clear floaters
-      floaters.innerHTML = '';
-      letter.classList.remove('show');
-      letter.setAttribute('aria-hidden','true');
-      gift.classList.remove('open');
-      showMessage("Scene reset — ready for another sweet moment.");
-    });
-
-    /* -------------------------
-       Messages (small text updates)
-       ------------------------- */
-    let messageTimer = null;
-    function showMessage(title){
-      msgTitle.textContent = title.split('.')[0];
-      msgText.textContent = title;
-      if(messageTimer) clearTimeout(messageTimer);
-      messageTimer = setTimeout(()=> {
-        msgTitle.textContent = "A journey of small beautiful things";
-        msgText.textContent = "Click the buttons to reveal little moments — a teddy hug, fluttering butterflies, and a tiny letter from me to you.";
-      }, 7000);
-    }
-
-    /* -------------------------
-       Small playful touches:
-       - spawn few butterflies & hearts slowly so page feels alive
-       ------------------------- */
-    setTimeout(()=> {
-      for(let i=0;i<4;i++){
-        setTimeout(()=> spawnButterfly(), i*800);
-      }
-      for(let i=0;i<6;i++){
-        setTimeout(()=> spawnHeart(), i*600 + 200);
-      }
-    }, 700);
-
-    /* Accessibility: keyboard interactions */
-    gift.addEventListener('keydown', (e)=>{
-      if(e.key === 'Enter' || e.key === ' ') gift.click();
-    });
-
-    /* make letter content more personalised (small extra magic) */
-    // Replace name occurrences to ensure personalization
-    (function personalize(){
-      const name = "Zoya";
-      letterText.innerHTML = letterText.innerHTML.replace(/Silu/g, '<span class="red">Silu</span>');
-      letterText.innerHTML = letterText.innerHTML.replace(/Silu/g, '<span class="red">Silu</span>');
-      // small intro replacement
-      const firstLine = `For <strong>${name}</strong>,`;
-      letter.insertAdjacentHTML('afterbegin', '');
-    })();
-  </script>
 </body>
 </html>
