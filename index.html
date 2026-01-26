@@ -1,141 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For My Silu ❤️</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Movie Night 🖤</title>
 
-<style>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
     body {
-        margin: 0;
-        background: #fff5fb;
-        font-family: "Poppins", sans-serif;
-        text-align: center;
+      background: radial-gradient(circle at top, #1a0000, #000);
+      color: #fff;
+      min-height: 100vh;
+      overflow-x: hidden;
     }
 
-    .container {
-        max-width: 500px;
-        margin: auto;
-        padding: 20px;
+    header {
+      text-align: center;
+      padding: 30px 15px;
+      animation: fadeIn 2s ease;
     }
 
-    h1 {
-        font-size: 2.3rem;
-        color: #ff6fa8;
-        margin-top: 30px;
+    header h1 {
+      font-size: 2rem;
+      color: #ff4d6d;
+      text-shadow: 0 0 10px #ff4d6d;
     }
 
-    .subtitle {
-        color: #444;
-        font-size: 1.1rem;
-        margin-bottom: 20px;
+    header p {
+      margin-top: 10px;
+      color: #ccc;
+      font-size: 0.95rem;
     }
 
-    .cute-img {
-        width: 180px;
-        margin: 20px 0;
-        animation: float 3s ease-in-out infinite;
+    section {
+      margin: 25px 15px;
+      padding: 20px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
+      animation: slideUp 1.5s ease;
     }
 
-    @keyframes float {
-        0% { transform: translateY(0); }
-        50% { transform: translateY(-10px); }
-        100% { transform: translateY(0); }
+    section h2 {
+      font-size: 1.4rem;
+      margin-bottom: 10px;
+      color: #ff758f;
     }
 
-    .btn {
-        background: #ff96c9;
-        color: white;
-        border: none;
-        padding: 12px 20px;
-        border-radius: 25px;
-        font-size: 1.2rem;
-        cursor: pointer;
-        margin-top: 10px;
-        box-shadow: 0 4px 8px rgba(255, 138, 180, 0.5);
-        transition: 0.3s;
+    section p {
+      font-size: 0.9rem;
+      color: #ddd;
+      line-height: 1.5;
     }
 
-    .btn:hover {
-        background: #ff7ab5;
-        transform: scale(1.05);
+    .image-box {
+      margin-top: 15px;
+      text-align: center;
     }
 
-    #loveMessage {
-        opacity: 0;
-        margin-top: 25px;
-        background: white;
-        padding: 18px;
-        border-radius: 15px;
-        font-size: 1.1rem;
-        color: #444;
-        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        transition: opacity 1s ease;
+    .image-box img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 14px;
+      box-shadow: 0 0 25px rgba(255, 0, 0, 0.4);
+      animation: pulse 3s infinite;
     }
 
-    .butterfly {
-        position: absolute;
-        width: 45px;
-        top: -60px;
-        animation: fly 7s linear infinite;
-        opacity: 0.8;
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
     }
 
-    @keyframes fly {
-        from { transform: translateY(0) translateX(0); }
-        to { transform: translateY(110vh) translateX(25vw); }
+    .buttons a {
+      text-decoration: none;
     }
-</style>
+
+    button {
+      width: 100%;
+      padding: 14px;
+      border-radius: 30px;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .meet-btn {
+      background: linear-gradient(45deg, #ff0844, #ffb199);
+      color: #000;
+      box-shadow: 0 0 15px #ff4d6d;
+    }
+
+    .meet-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px #ff4d6d;
+    }
+
+    .movie-btn {
+      background: linear-gradient(45deg, #000, #330000);
+      color: #fff;
+      border: 1px solid #ff4d6d;
+    }
+
+    .movie-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 20px #ff4d6d;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px 10px;
+      font-size: 0.8rem;
+      color: #aaa;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(40px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 10px rgba(255,0,0,0.4); }
+      50% { box-shadow: 0 0 30px rgba(255,0,0,0.8); }
+      100% { box-shadow: 0 0 10px rgba(255,0,0,0.4); }
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="container">
-    <h1>Hi Silu ❤️</h1>
-    <p class="subtitle">A small soft page from your Chintu 🐼✨</p>
+  <header>
+    <h1>🖤 Mazaa aaayegi aaj 🩸</h1>
+    <p>Lights off. Hearts close. Screams together</p>
+  </header>
 
-    <!-- Panda SVG -->
-    <svg class="cute-img" viewBox="0 0 64 64">
-        <circle cx="32" cy="32" r="30" fill="#fff"/>
-        <circle cx="22" cy="24" r="8" fill="#000"/>
-        <circle cx="42" cy="24" r="8" fill="#000"/>
-        <circle cx="22" cy="25" r="3" fill="#fff"/>
-        <circle cx="42" cy="25" r="3" fill="#fff"/>
-        <circle cx="32" cy="40" r="12" fill="#000"/>
-    </svg>
+  <section>
+    <h2>Tonight’s Vibe 👻 Love you baby</h2>
+    <p>
+      A dark room, a scary movie, whispered laughs, sudden screams,
+      and two souls connected through the screen
+    </p>
 
-    <button class="btn" onclick="showLove()">Tap Me Silu 💗</button>
-
-    <div id="loveMessage">
-        Zoya…  
-        You are my softest emotion.  
-        My panda, my smile, my person.  
-        You matter to me more than distance, time, or anything else.  
-        I love you more than I can ever explain. ❤️  
+    <div class="image-box">
+      <img src="https://images.unsplash.com/photo-1601987077677-5346c1c57d4d"
+           alt="Horror Movie Night">
     </div>
-</div>
+  </section>
 
-<!-- Butterfly SVGs -->
-<svg class="butterfly" style="left:10vw; animation-delay:0s" viewBox="0 0 64 64">
-    <path d="M32 32 C10 10, 5 30, 20 40 C5 50, 20 60, 32 45" fill="#ffb7e0"/>
-    <path d="M32 32 C54 10, 59 30, 44 40 C59 50, 44 60, 32 45" fill="#ffb7e0"/>
-</svg>
+  <section>
+    <h2>Ready to Begin? ❤️‍🔥</h2>
+    <p>
+      Click the button below, join the call, keep your camera on,
+      and don’t hide when the jump scares come 😈
+    </p>
 
-<svg class="butterfly" style="left:50vw; animation-delay:2s" viewBox="0 0 64 64">
-    <path d="M32 32 C10 10, 5 30, 20 40 C5 50, 20 60, 32 45" fill="#ffc8ea"/>
-    <path d="M32 32 C54 10, 59 30, 44 40 C59 50, 44 60, 32 45" fill="#ffc8ea"/>
-</svg>
+    <div class="buttons">
+      <!-- Replace the dummy Google Meet link below -->
+      <a href="meet.google.com/vov-dyvo-yyo" target="_blank">
+        <button class="meet-btn">Join Google Meet 🎥</button>
+      </a>
 
-<svg class="butterfly" style="left:80vw; animation-delay:4s" viewBox="0 0 64 64">
-    <path d="M32 32 C10 10, 5 30, 20 40 C5 50, 20 60, 32 45" fill="#ffd6f1"/>
-    <path d="M32 32 C54 10, 59 30, 44 40 C59 50, 44 60, 32 45" fill="#ffd6f1"/>
-</svg>
+      <button class="movie-btn" onclick="alert('Lights off. Volume up. Hold hands virtually 🖤')">
+        Start the Horror Mood 🎬
+      </button>
+    </div>
+  </section>
 
-<script>
-function showLove() {
-    document.getElementById("loveMessage").style.opacity = 1;
-}
-</script>
+  <footer>
+    Made with fear 🩸 and love ❤️ for our movie night 
+  </footer>
 
 </body>
 </html>
