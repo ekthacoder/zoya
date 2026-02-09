@@ -1,185 +1,194 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Movie Night 🖤</title>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>For Zoya ❤️</title>
 
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', sans-serif;
-    }
+<style>
+:root {
+  --pink: #ffb6c1;
+  --rose: #ff7eb3;
+  --lavender: #b28dff;
+  --text: #ffffff;
+}
 
-    body {
-      background: radial-gradient(circle at top, #1a0000, #000);
-      color: #fff;
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+}
 
-    header {
-      text-align: center;
-      padding: 30px 15px;
-      animation: fadeIn 2s ease;
-    }
+body {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #1b1b3a, #2d1e3f, #3b1f4f);
+  overflow: hidden;
+  color: var(--text);
+}
 
-    header h1 {
-      font-size: 2rem;
-      color: #ff4d6d;
-      text-shadow: 0 0 10px #ff4d6d;
-    }
+/* CENTER CARD */
+.container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
 
-    header p {
-      margin-top: 10px;
-      color: #ccc;
-      font-size: 0.95rem;
-    }
+.card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border-radius: 24px;
+  padding: 32px 24px;
+  max-width: 360px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  animation: fadeIn 2s ease;
+}
 
-    section {
-      margin: 25px 15px;
-      padding: 20px;
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 16px;
-      box-shadow: 0 0 20px rgba(255, 0, 0, 0.2);
-      animation: slideUp 1.5s ease;
-    }
+h1 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
 
-    section h2 {
-      font-size: 1.4rem;
-      margin-bottom: 10px;
-      color: #ff758f;
-    }
+h1 span {
+  color: var(--pink);
+}
 
-    section p {
-      font-size: 0.9rem;
-      color: #ddd;
-      line-height: 1.5;
-    }
+p {
+  font-size: 1.05rem;
+  line-height: 1.6;
+  opacity: 0.95;
+}
 
-    .image-box {
-      margin-top: 15px;
-      text-align: center;
-    }
+.propose {
+  margin-top: 24px;
+  font-size: 1.4rem;
+  color: var(--rose);
+  font-weight: 600;
+}
 
-    .image-box img {
-      width: 100%;
-      max-width: 300px;
-      border-radius: 14px;
-      box-shadow: 0 0 25px rgba(255, 0, 0, 0.4);
-      animation: pulse 3s infinite;
-    }
+.footer {
+  margin-top: 18px;
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
 
-    .buttons {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      margin-top: 20px;
-    }
+/* FLOATING SVGs */
+.floating {
+  position: absolute;
+  bottom: -120px;
+  animation: floatUp linear infinite;
+  opacity: 0.6;
+}
 
-    .buttons a {
-      text-decoration: none;
-    }
+.heart svg,
+.petal svg {
+  width: 100%;
+  height: 100%;
+}
 
-    button {
-      width: 100%;
-      padding: 14px;
-      border-radius: 30px;
-      border: none;
-      font-size: 1rem;
-      cursor: pointer;
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
+.heart {
+  width: 28px;
+  animation-duration: 18s;
+}
 
-    .meet-btn {
-      background: linear-gradient(45deg, #ff0844, #ffb199);
-      color: #000;
-      box-shadow: 0 0 15px #ff4d6d;
-    }
+.petal {
+  width: 22px;
+  animation-duration: 22s;
+}
 
-    .meet-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 25px #ff4d6d;
-    }
+/* RANDOM POSITIONS */
+.f1 { left: 10%; animation-delay: 0s; }
+.f2 { left: 30%; animation-delay: 4s; }
+.f3 { left: 50%; animation-delay: 2s; }
+.f4 { left: 70%; animation-delay: 6s; }
+.f5 { left: 85%; animation-delay: 1s; }
 
-    .movie-btn {
-      background: linear-gradient(45deg, #000, #330000);
-      color: #fff;
-      border: 1px solid #ff4d6d;
-    }
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) scale(0.8);
+    opacity: 0;
+  }
+  10% { opacity: 0.6; }
+  100% {
+    transform: translateY(-120vh) scale(1.2);
+    opacity: 0;
+  }
+}
 
-    .movie-btn:hover {
-      transform: scale(1.05);
-      box-shadow: 0 0 20px #ff4d6d;
-    }
-
-    footer {
-      text-align: center;
-      padding: 20px 10px;
-      font-size: 0.8rem;
-      color: #aaa;
-    }
-
-    /* Animations */
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @keyframes slideUp {
-      from { transform: translateY(40px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
-
-    @keyframes pulse {
-      0% { box-shadow: 0 0 10px rgba(255,0,0,0.4); }
-      50% { box-shadow: 0 0 30px rgba(255,0,0,0.8); }
-      100% { box-shadow: 0 0 10px rgba(255,0,0,0.4); }
-    }
-  </style>
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <h1>🖤 Mazaa aaayegi aaj 🩸</h1>
-    <p>Lights off. Hearts close. Screams together</p>
-  </header>
+<!-- FLOATING HEARTS -->
+<div class="floating heart f1">
+  <svg viewBox="0 0 24 24" fill="#ff7eb3">
+    <path d="M12 21s-7-4.35-10-9c-2.5-4 1-9 5-9 2.5 0 4 1.5 5 3 1-1.5 2.5-3 5-3 4 0 7.5 5 5 9-3 4.65-10 9-10 9z"/>
+  </svg>
+</div>
 
-  <section>
-    <h2>Tonight’s Vibe 👻 Love you baby</h2>
+<div class="floating heart f2">
+  <svg viewBox="0 0 24 24" fill="#ffb6c1">
+    <path d="M12 21s-7-4.35-10-9c-2.5-4 1-9 5-9 2.5 0 4 1.5 5 3 1-1.5 2.5-3 5-3 4 0 7.5 5 5 9-3 4.65-10 9-10 9z"/>
+  </svg>
+</div>
+
+<!-- FLOATING PETALS -->
+<div class="floating petal f3">
+  <svg viewBox="0 0 24 24" fill="#b28dff">
+    <path d="M12 2c4 4 6 8 0 20C6 10 8 6 12 2z"/>
+  </svg>
+</div>
+
+<div class="floating petal f4">
+  <svg viewBox="0 0 24 24" fill="#d9b3ff">
+    <path d="M12 2c4 4 6 8 0 20C6 10 8 6 12 2z"/>
+  </svg>
+</div>
+
+<div class="floating heart f5">
+  <svg viewBox="0 0 24 24" fill="#ff9ebd">
+    <path d="M12 21s-7-4.35-10-9c-2.5-4 1-9 5-9 2.5 0 4 1.5 5 3 1-1.5 2.5-3 5-3 4 0 7.5 5 5 9-3 4.65-10 9-10 9z"/>
+  </svg>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="container">
+  <div class="card">
+    <h1>Hey <span>Zoya</span> 🌙</h1>
     <p>
-      A dark room, a scary movie, whispered laughs, sudden screams,
-      and two souls connected through the screen
+      Distance couldn’t let me hold your hand today,<br>
+      but my heart still found its way to you.
     </p>
 
-
-  </section>
-
-  <section>
-    <h2>Ready to Begin? ❤️‍🔥</h2>
-    <p>
-      Click the button below, join the call, keep your camera on,
-      and don’t hide when the jump scares come 😈
+    <p style="margin-top:14px;">
+      Every smile of yours feels like home,<br>
+      and every day with you is my favorite chapter.
     </p>
 
-    <div class="buttons">
-      <!-- Replace the dummy Google Meet link below -->
-      <a href="https://meet.google.com/vov-dyvo-yyo?pli=1" target="_blank">
-        <button class="meet-btn">Join Google Meet 🎥</button>
-      </a>
-
-      <button class="movie-btn" onclick="alert('Lights off. Volume up. Hold hands virtually 🖤')">
-        Start the Horror Mood 🎬
-      </button>
+    <div class="propose">
+      Will you be mine, always? 💍
     </div>
-  </section>
 
-  <footer>
-    Made with fear 🩸 and love ❤️ for our movie night 
-  </footer>
+    <div class="footer">
+      Happy Propose Day ❤️
+    </div>
+  </div>
+</div>
 
 </body>
 </html>
