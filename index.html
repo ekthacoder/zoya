@@ -1,148 +1,206 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>For Zoya 💖</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', sans-serif;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For my Zoya 💖</title>
 
-    body {
-      min-height: 100vh;
-      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
-      color: #5a2a2a;
-    }
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family: 'Segoe UI', sans-serif;
+}
 
-    .container {
-      background: rgba(255, 255, 255, 0.25);
-      backdrop-filter: blur(12px);
-      border-radius: 24px;
-      padding: 32px;
-      max-width: 360px;
-      width: 90%;
-      text-align: center;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-      position: relative;
-    }
+body{
+  min-height:100vh;
+  background: linear-gradient(135deg,#ffdde1,#ee9ca7);
+  overflow:hidden;
+  color:#5a2a2a;
+}
 
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
+.container{
+  max-width:380px;
+  margin:auto;
+  margin-top:40px;
+  background:rgba(255,255,255,0.25);
+  backdrop-filter:blur(12px);
+  border-radius:26px;
+  padding:28px;
+  box-shadow:0 25px 45px rgba(0,0,0,0.15);
+  text-align:center;
+}
 
-    p {
-      font-size: 1rem;
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
+h1{
+  margin-bottom:12px;
+}
 
-    button {
-      padding: 12px 24px;
-      border: none;
-      border-radius: 30px;
-      background: #ff4d6d;
-      color: white;
-      font-size: 1rem;
-      cursor: pointer;
-      box-shadow: 0 10px 20px rgba(255, 77, 109, 0.4);
-      transition: transform 0.2s, box-shadow 0.2s;
-    }
+p{
+  line-height:1.6;
+  margin-bottom:20px;
+}
 
-    button:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 14px 25px rgba(255, 77, 109, 0.6);
-    }
+.btn{
+  display:block;
+  width:100%;
+  padding:12px;
+  margin:10px 0;
+  border:none;
+  border-radius:30px;
+  background:#ff4d6d;
+  color:white;
+  font-size:1rem;
+  cursor:pointer;
+  box-shadow:0 10px 20px rgba(255,77,109,0.4);
+  transition:0.2s;
+}
 
-    .message {
-      display: none;
-      margin-top: 20px;
-      font-size: 1.05rem;
-    }
+.btn:hover{
+  transform:translateY(-2px);
+}
 
-    /* Floating hearts */
-    .heart {
-      position: absolute;
-      width: 18px;
-      height: 18px;
-      animation: float 6s infinite ease-in;
-      opacity: 0.6;
-    }
+.page{
+  display:none;
+  animation:fade 0.5s ease;
+}
 
-    @keyframes float {
-      0% {
-        transform: translateY(0) scale(1);
-        opacity: 0;
-      }
-      20% {
-        opacity: 0.8;
-      }
-      100% {
-        transform: translateY(-600px) scale(1.4);
-        opacity: 0;
-      }
-    }
-  </style>
+.page.active{
+  display:block;
+}
+
+@keyframes fade{
+  from{opacity:0; transform:translateY(10px);}
+  to{opacity:1; transform:translateY(0);}
+}
+
+/* Album */
+.album{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:10px;
+}
+
+.album img{
+  width:100%;
+  border-radius:16px;
+  object-fit:cover;
+}
+
+/* Floating hearts */
+.heart{
+  position:absolute;
+  width:18px;
+  height:18px;
+  opacity:0.6;
+  animation:float 6s infinite ease-in;
+}
+
+@keyframes float{
+  0%{transform:translateY(0) scale(1); opacity:0;}
+  20%{opacity:0.8;}
+  100%{transform:translateY(-600px) scale(1.4); opacity:0;}
+}
+</style>
 </head>
+
 <body>
 
-  <!-- SVG Heart Template -->
-  <svg width="0" height="0">
-    <defs>
-      <symbol id="svg-heart" viewBox="0 0 32 29.6">
-        <path
-          fill="#ff4d6d"
-          d="M23.6,0c-3.4,0-6.4,2-7.6,4.9C14.8,2,11.8,0,8.4,0
-          C3.8,0,0,3.8,0,8.4c0,9.4,16,21.2,16,21.2s16-11.8,16-21.2
-          C32,3.8,28.2,0,23.6,0z"/>
-      </symbol>
-    </defs>
-  </svg>
+<!-- SVG HEART -->
+<svg width="0" height="0">
+<defs>
+<symbol id="svg-heart" viewBox="0 0 32 29.6">
+<path fill="#ff4d6d"
+d="M23.6,0c-3.4,0-6.4,2-7.6,4.9C14.8,2,11.8,0,8.4,0
+C3.8,0,0,3.8,0,8.4c0,9.4,16,21.2,16,21.2s16-11.8,16-21.2
+C32,3.8,28.2,0,23.6,0z"/>
+</symbol>
+</defs>
+</svg>
 
-  <div class="container">
-    <h1>Happy Valentine’s Day 💕</h1>
-    <p>
-      Zoya, even miles apart,<br>
-      my heart somehow always finds yours.
-    </p>
+<div class="container">
 
-    <button onclick="showMessage()">Tap Me 💖</button>
+<!-- HOME PAGE -->
+<div class="page active" id="home">
+  <h1>Happy Valentine’s Day 💕</h1>
+  <p>
+    Zoya, this little place on the internet<br>
+    is made only for **you** 🌸
+  </p>
 
-    <div class="message" id="message">
-      🌸 You are my calm in chaos,<br>
-      my smile on hard days,<br>
-      and my favorite feeling.  
-      <br><br>
-      Today is special because **you exist** 💫
-    </div>
+  <button class="btn" onclick="openPage('message')">💌 Special Message</button>
+  <button class="btn" onclick="openPage('album')">🖼️ Our Album</button>
+  <button class="btn" onclick="openPage('promise')">💖 A Small Promise</button>
+</div>
+
+<!-- MESSAGE PAGE -->
+<div class="page" id="message">
+  <h1>For You 💌</h1>
+  <p>
+    You are my peace on loud days,<br>
+    my smile without a reason,<br>
+    and my favorite thought before sleep.I love you 🫂
+    <br><br>
+    Distance may test us,<br>
+    but my heart already chose you 💫
+  </p>
+  <button class="btn" onclick="openPage('home')">⬅ Back</button>
+</div>
+
+<!-- ALBUM PAGE -->
+<div class="page" id="album">
+  <h1>Our Memories 🖼️</h1>
+
+  <div class="album">
+    <!-- Replace src with your images -->
+    <img src="photo1.jpg" alt="">
+    <img src="photo2.jpg" alt="">
+    <img src="photo3.jpg" alt="">
+    <img src="photo4.jpg" alt="">
   </div>
 
-  <script>
-    function showMessage() {
-      document.getElementById("message").style.display = "block";
-    }
+  <p style="margin-top:12px;font-size:0.9rem;">
+    (Add your photos in the same folder and rename them)
+  </p>
 
-    // Create floating hearts
-    for (let i = 0; i < 20; i++) {
-      const heart = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-      heart.classList.add("heart");
-      heart.setAttribute("viewBox", "0 0 32 29.6");
-      heart.innerHTML = '<use href="#svg-heart"></use>';
-      heart.style.left = Math.random() * 100 + "vw";
-      heart.style.bottom = "-20px";
-      heart.style.animationDelay = Math.random() * 5 + "s";
-      heart.style.animationDuration = 5 + Math.random() * 3 + "s";
-      document.body.appendChild(heart);
-    }
-  </script>
+  <button class="btn" onclick="openPage('home')">⬅ Back</button>
+</div>
+
+<!-- PROMISE PAGE -->
+<div class="page" id="promise">
+  <h1>My Promise 💖</h1>
+  <p>
+    I promise to choose you,<br>
+    on easy days and hard ones,<br>
+    in silence and in laughter.
+    <br><br>
+    Not perfectly,<br>
+    but honestly 🤍
+  </p>
+  <button class="btn" onclick="openPage('home')">⬅ Back</button>
+</div>
+
+</div>
+
+<script>
+function openPage(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+
+// floating hearts
+for(let i=0;i<18;i++){
+  const h=document.createElementNS("http://www.w3.org/2000/svg","svg");
+  h.classList.add("heart");
+  h.setAttribute("viewBox","0 0 32 29.6");
+  h.innerHTML='<use href="#svg-heart"></use>';
+  h.style.left=Math.random()*100+"vw";
+  h.style.bottom="-20px";
+  h.style.animationDelay=Math.random()*5+"s";
+  h.style.animationDuration=5+Math.random()*3+"s";
+  document.body.appendChild(h);
+}
+</script>
 
 </body>
 </html>
