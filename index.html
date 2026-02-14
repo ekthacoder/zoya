@@ -3,78 +3,64 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For my Zoya 💖</title>
+<title>For Zoya 💖</title>
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family: 'Segoe UI', sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
 
 body{
   min-height:100vh;
-  background: linear-gradient(135deg,#ffdde1,#ee9ca7);
-  overflow:hidden;
-  color:#5a2a2a;
+  background:radial-gradient(circle at top,#ffe6eb,#ee9ca7);
+  overflow-x:hidden;
+  color:#4b1f24;
 }
 
-.container{
-  max-width:380px;
-  margin:auto;
-  margin-top:40px;
-  background:rgba(255,255,255,0.25);
-  backdrop-filter:blur(12px);
-  border-radius:26px;
-  padding:28px;
-  box-shadow:0 25px 45px rgba(0,0,0,0.15);
-  text-align:center;
+.wrapper{
+  max-width:390px;
+  margin:30px auto;
+  background:rgba(255,255,255,0.3);
+  backdrop-filter:blur(14px);
+  border-radius:28px;
+  padding:26px;
+  box-shadow:0 30px 60px rgba(0,0,0,0.2);
 }
 
-h1{
-  margin-bottom:12px;
+.page{display:none;animation:slide 0.6s ease;}
+.page.active{display:block;}
+
+@keyframes slide{
+  from{opacity:0;transform:translateY(20px);}
+  to{opacity:1;transform:translateY(0);}
 }
+
+h1{font-size:1.8rem;margin-bottom:10px;}
+h2{font-size:1.2rem;margin-bottom:10px;}
 
 p{
-  line-height:1.6;
-  margin-bottom:20px;
+  font-size:0.95rem;
+  line-height:1.7;
+  margin-bottom:16px;
 }
 
 .btn{
-  display:block;
   width:100%;
   padding:12px;
-  margin:10px 0;
+  margin:8px 0;
   border:none;
   border-radius:30px;
-  background:#ff4d6d;
-  color:white;
+  background:linear-gradient(135deg,#ff4d6d,#ff758f);
+  color:#fff;
   font-size:1rem;
   cursor:pointer;
-  box-shadow:0 10px 20px rgba(255,77,109,0.4);
-  transition:0.2s;
+  box-shadow:0 10px 25px rgba(255,77,109,0.5);
 }
 
-.btn:hover{
-  transform:translateY(-2px);
+.btn.secondary{
+  background:transparent;
+  color:#ff4d6d;
+  border:2px solid #ff4d6d;
 }
 
-.page{
-  display:none;
-  animation:fade 0.5s ease;
-}
-
-.page.active{
-  display:block;
-}
-
-@keyframes fade{
-  from{opacity:0; transform:translateY(10px);}
-  to{opacity:1; transform:translateY(0);}
-}
-
-/* Album */
 .album{
   display:grid;
   grid-template-columns:repeat(2,1fr);
@@ -83,33 +69,39 @@ p{
 
 .album img{
   width:100%;
-  border-radius:16px;
+  height:130px;
   object-fit:cover;
+  border-radius:16px;
+  animation:pop 0.5s ease;
 }
 
-/* Floating hearts */
-.heart{
+@keyframes pop{
+  from{transform:scale(0.9);opacity:0;}
+  to{transform:scale(1);opacity:1;}
+}
+
+/* Floating SVGs */
+.float{
   position:absolute;
-  width:18px;
-  height:18px;
-  opacity:0.6;
-  animation:float 6s infinite ease-in;
+  width:20px;
+  opacity:0.5;
+  animation:float 7s infinite ease-in;
 }
 
 @keyframes float{
-  0%{transform:translateY(0) scale(1); opacity:0;}
-  20%{opacity:0.8;}
-  100%{transform:translateY(-600px) scale(1.4); opacity:0;}
+  0%{transform:translateY(0) scale(1);opacity:0;}
+  20%{opacity:0.7;}
+  100%{transform:translateY(-700px) scale(1.4);opacity:0;}
 }
 </style>
 </head>
 
 <body>
 
-<!-- SVG HEART -->
+<!-- SVG DEFINITIONS -->
 <svg width="0" height="0">
 <defs>
-<symbol id="svg-heart" viewBox="0 0 32 29.6">
+<symbol id="heart" viewBox="0 0 32 29.6">
 <path fill="#ff4d6d"
 d="M23.6,0c-3.4,0-6.4,2-7.6,4.9C14.8,2,11.8,0,8.4,0
 C3.8,0,0,3.8,0,8.4c0,9.4,16,21.2,16,21.2s16-11.8,16-21.2
@@ -118,86 +110,122 @@ C32,3.8,28.2,0,23.6,0z"/>
 </defs>
 </svg>
 
-<div class="container">
+<div class="wrapper">
 
-<!-- HOME PAGE -->
+<!-- HOME -->
 <div class="page active" id="home">
-  <h1>Happy Valentine’s Day 💕</h1>
-  <p>
-    Zoya, this little place on the internet<br>
-    is made only for **you** 🌸
-  </p>
+<h1>Hi Zoya 💖</h1>
+<p>
+This is not just a website.  
+It’s a small corner of my heart,  
+made only for you.
+</p>
 
-  <button class="btn" onclick="openPage('message')">💌 Special Message</button>
-  <button class="btn" onclick="openPage('album')">🖼️ Our Album</button>
-  <button class="btn" onclick="openPage('promise')">💖 A Small Promise</button>
+<button class="btn" onclick="go('letter')">💌 Read My Letter</button>
+<button class="btn" onclick="go('album')">🖼️ Our Memories</button>
+<button class="btn" onclick="go('miss')">🤍 When You Miss Me</button>
+<button class="btn" onclick="go('distance')">🌍 Long Distance Promise</button>
 </div>
 
-<!-- MESSAGE PAGE -->
-<div class="page" id="message">
-  <h1>For You 💌</h1>
-  <p>
-    You are my peace on loud days,<br>
-    my smile without a reason,<br>
-    and my favorite thought before sleep.I love you 🫂
-    <br><br>
-    Distance may test us,<br>
-    but my heart already chose you 💫
-  </p>
-  <button class="btn" onclick="openPage('home')">⬅ Back</button>
+<!-- LETTER -->
+<div class="page" id="letter">
+<h1>My Letter 💌</h1>
+<p>
+Some people feel like home,  
+even from miles away.  
+You are that feeling for me.
+</p>
+<p>
+Every day I choose you —  
+in silence, in patience,  
+and in love that grows quietly.
+</p>
+<button class="btn secondary" onclick="go('home')">⬅ Back</button>
 </div>
 
-<!-- ALBUM PAGE -->
+<!-- ALBUM -->
 <div class="page" id="album">
-  <h1>Our Memories 🖼️</h1>
+<h1>Our Album 🖼️</h1>
 
-  <div class="album">
-    <!-- Replace src with your images -->
-    <img src="photo1.jpg" alt="">
-    <img src="photo2.jpg" alt="">
-    <img src="photo3.jpg" alt="">
-    <img src="photo4.jpg" alt="">
-  </div>
+<p style="font-style:italic;">
+(This paragraph is for you to edit based on the photos.  
+You can write what this phase meant, what you felt,  
+or why these moments matter 🤍)
+</p>
 
-  <p style="margin-top:12px;font-size:0.9rem;">
-    (Add your photos in the same folder and rename them)
-  </p>
-
-  <button class="btn" onclick="openPage('home')">⬅ Back</button>
+<div class="album">
+<img src="photo1.jpg">
+<img src="photo2.jpg">
+<img src="photo3.jpg">
+<img src="photo4.jpg">
+<img src="photo5.jpg">
+<img src="photo6.jpg">
+<img src="photo7.jpg">
+<img src="photo8.jpg">
+<img src="photo9.jpg">
+<img src="photo10.jpg">
 </div>
 
-<!-- PROMISE PAGE -->
-<div class="page" id="promise">
-  <h1>My Promise 💖</h1>
-  <p>
-    I promise to choose you,<br>
-    on easy days and hard ones,<br>
-    in silence and in laughter.
-    <br><br>
-    Not perfectly,<br>
-    but honestly 🤍
-  </p>
-  <button class="btn" onclick="openPage('home')">⬅ Back</button>
+<button class="btn secondary" onclick="go('home')">⬅ Back</button>
+</div>
+
+<!-- MISS ME -->
+<div class="page" id="miss">
+<h1>When You Miss Me 🤍</h1>
+<p>
+Read this slowly.
+</p>
+<p>
+I’m thinking of you too.  
+I’m proud of you.  
+And I’m staying — even on days  
+when distance feels heavy.
+</p>
+<p>
+Close your eyes for a moment.  
+That calm you feel?  
+That’s us.
+</p>
+<button class="btn secondary" onclick="go('home')">⬅ Back</button>
+</div>
+
+<!-- DISTANCE -->
+<div class="page" id="distance">
+<h1>Across Miles 🌍</h1>
+<p>
+Distance is not a gap between hearts.  
+It’s just proof that love can wait.
+</p>
+<p>
+No matter how far we are,  
+my intentions stay close,  
+and my heart stays loyal.
+</p>
+<p>
+One day this distance  
+will just be a story we smile at 💫
+</p>
+<button class="btn secondary" onclick="go('home')">⬅ Back</button>
 </div>
 
 </div>
 
 <script>
-function openPage(id){
+function go(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById(id).classList.add('active');
 }
 
 // floating hearts
-for(let i=0;i<18;i++){
-  const h=document.createElementNS("http://www.w3.org/2000/svg","svg");
-  h.classList.add("heart");
+for(let i=0;i<25;i++){
+  let h=document.createElementNS("http://www.w3.org/2000/svg","svg");
+  h.classList.add("float");
   h.setAttribute("viewBox","0 0 32 29.6");
-  h.innerHTML='<use href="#svg-heart"></use>';
+  h.innerHTML='<use href="#heart"></use>';
   h.style.left=Math.random()*100+"vw";
-  h.style.bottom="-20px";
-  h.style.animationDelay=Math.random()*5+"s";
-  h.style.animationDuration=5+Math.random()*3+"s";
+  h.style.bottom="-30px";
+  h.style.animationDelay=Math.random()*6+"s";
+  h.style.animationDuration=6+Math.random()*4+"s";
   document.body.appendChild(h);
 }
 </script>
