@@ -1,194 +1,148 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>For Zoya ❤️</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For Zoya 💖</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', sans-serif;
+    }
 
-<style>
-:root {
-  --pink: #ffb6c1;
-  --rose: #ff7eb3;
-  --lavender: #b28dff;
-  --text: #ffffff;
-}
+    body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #ffdde1, #ee9ca7);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      color: #5a2a2a;
+    }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Segoe UI', system-ui, sans-serif;
-}
+    .container {
+      background: rgba(255, 255, 255, 0.25);
+      backdrop-filter: blur(12px);
+      border-radius: 24px;
+      padding: 32px;
+      max-width: 360px;
+      width: 90%;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+      position: relative;
+    }
 
-body {
-  min-height: 100vh;
-  background: linear-gradient(180deg, #1b1b3a, #2d1e3f, #3b1f4f);
-  overflow: hidden;
-  color: var(--text);
-}
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+    }
 
-/* CENTER CARD */
-.container {
-  height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
+    p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
 
-.card {
-  background: rgba(255, 255, 255, 0.08);
-  backdrop-filter: blur(12px);
-  border-radius: 24px;
-  padding: 32px 24px;
-  max-width: 360px;
-  width: 100%;
-  text-align: center;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-  animation: fadeIn 2s ease;
-}
+    button {
+      padding: 12px 24px;
+      border: none;
+      border-radius: 30px;
+      background: #ff4d6d;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+      box-shadow: 0 10px 20px rgba(255, 77, 109, 0.4);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
 
-h1 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-}
+    button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 25px rgba(255, 77, 109, 0.6);
+    }
 
-h1 span {
-  color: var(--pink);
-}
+    .message {
+      display: none;
+      margin-top: 20px;
+      font-size: 1.05rem;
+    }
 
-p {
-  font-size: 1.05rem;
-  line-height: 1.6;
-  opacity: 0.95;
-}
+    /* Floating hearts */
+    .heart {
+      position: absolute;
+      width: 18px;
+      height: 18px;
+      animation: float 6s infinite ease-in;
+      opacity: 0.6;
+    }
 
-.propose {
-  margin-top: 24px;
-  font-size: 1.4rem;
-  color: var(--rose);
-  font-weight: 600;
-}
-
-.footer {
-  margin-top: 18px;
-  font-size: 0.85rem;
-  opacity: 0.7;
-}
-
-/* FLOATING SVGs */
-.floating {
-  position: absolute;
-  bottom: -120px;
-  animation: floatUp linear infinite;
-  opacity: 0.6;
-}
-
-.heart svg,
-.petal svg {
-  width: 100%;
-  height: 100%;
-}
-
-.heart {
-  width: 28px;
-  animation-duration: 18s;
-}
-
-.petal {
-  width: 22px;
-  animation-duration: 22s;
-}
-
-/* RANDOM POSITIONS */
-.f1 { left: 10%; animation-delay: 0s; }
-.f2 { left: 30%; animation-delay: 4s; }
-.f3 { left: 50%; animation-delay: 2s; }
-.f4 { left: 70%; animation-delay: 6s; }
-.f5 { left: 85%; animation-delay: 1s; }
-
-@keyframes floatUp {
-  0% {
-    transform: translateY(0) scale(0.8);
-    opacity: 0;
-  }
-  10% { opacity: 0.6; }
-  100% {
-    transform: translateY(-120vh) scale(1.2);
-    opacity: 0;
-  }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-</style>
+    @keyframes float {
+      0% {
+        transform: translateY(0) scale(1);
+        opacity: 0;
+      }
+      20% {
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-600px) scale(1.4);
+        opacity: 0;
+      }
+    }
+  </style>
 </head>
-
 <body>
 
-<!-- FLOATING HEARTS -->
-<div class="floating heart f1">
-  <svg viewBox="0 0 24 24" fill="#ff7eb3">
-    <path d="M12 21s-7-4.35-10-9c-2.5-4 1-9 5-9 2.5 0 4 1.5 5 3 1-1.5 2.5-3 5-3 4 0 7.5 5 5 9-3 4.65-10 9-10 9z"/>
+  <!-- SVG Heart Template -->
+  <svg width="0" height="0">
+    <defs>
+      <symbol id="svg-heart" viewBox="0 0 32 29.6">
+        <path
+          fill="#ff4d6d"
+          d="M23.6,0c-3.4,0-6.4,2-7.6,4.9C14.8,2,11.8,0,8.4,0
+          C3.8,0,0,3.8,0,8.4c0,9.4,16,21.2,16,21.2s16-11.8,16-21.2
+          C32,3.8,28.2,0,23.6,0z"/>
+      </symbol>
+    </defs>
   </svg>
-</div>
 
-<div class="floating heart f2">
-  <svg viewBox="0 0 24 24" fill="#ffb6c1">
-    <path d="M12 21s-7-4.35-10-9c-2.5-4 1-9 5-9 2.5 0 4 1.5 5 3 1-1.5 2.5-3 5-3 4 0 7.5 5 5 9-3 4.65-10 9-10 9z"/>
-  </svg>
-</div>
-
-<!-- FLOATING PETALS -->
-<div class="floating petal f3">
-  <svg viewBox="0 0 24 24" fill="#b28dff">
-    <path d="M12 2c4 4 6 8 0 20C6 10 8 6 12 2z"/>
-  </svg>
-</div>
-
-<div class="floating petal f4">
-  <svg viewBox="0 0 24 24" fill="#d9b3ff">
-    <path d="M12 2c4 4 6 8 0 20C6 10 8 6 12 2z"/>
-  </svg>
-</div>
-
-<div class="floating heart f5">
-  <svg viewBox="0 0 24 24" fill="#ff9ebd">
-    <path d="M12 21s-7-4.35-10-9c-2.5-4 1-9 5-9 2.5 0 4 1.5 5 3 1-1.5 2.5-3 5-3 4 0 7.5 5 5 9-3 4.65-10 9-10 9z"/>
-  </svg>
-</div>
-
-<!-- MAIN CONTENT -->
-<div class="container">
-  <div class="card">
-    <h1>Hey <span>Zoya</span> 🌙</h1>
+  <div class="container">
+    <h1>Happy Valentine’s Day 💕</h1>
     <p>
-      Distance couldn’t let me hold your hand today,<br>
-      but my heart still found its way to you.
+      Zoya, even miles apart,<br>
+      my heart somehow always finds yours.
     </p>
 
-    <p style="margin-top:14px;">
-      Every smile of yours feels like home,<br>
-      and every day with you is my favorite chapter.
-    </p>
+    <button onclick="showMessage()">Tap Me 💖</button>
 
-    <div class="propose">
-      Will you be mine, always? 💍
-    </div>
-
-    <div class="footer">
-      Happy Propose Day ❤️
+    <div class="message" id="message">
+      🌸 You are my calm in chaos,<br>
+      my smile on hard days,<br>
+      and my favorite feeling.  
+      <br><br>
+      Today is special because **you exist** 💫
     </div>
   </div>
-</div>
+
+  <script>
+    function showMessage() {
+      document.getElementById("message").style.display = "block";
+    }
+
+    // Create floating hearts
+    for (let i = 0; i < 20; i++) {
+      const heart = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+      heart.classList.add("heart");
+      heart.setAttribute("viewBox", "0 0 32 29.6");
+      heart.innerHTML = '<use href="#svg-heart"></use>';
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.bottom = "-20px";
+      heart.style.animationDelay = Math.random() * 5 + "s";
+      heart.style.animationDuration = 5 + Math.random() * 3 + "s";
+      document.body.appendChild(heart);
+    }
+  </script>
 
 </body>
 </html>
