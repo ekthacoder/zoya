@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Zoya 💖</title>
+<title>For my Zoya 💖</title>
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
@@ -18,9 +18,9 @@ body{
 .wrapper{
   max-width:390px;
   margin:30px auto;
-  background:rgba(255,255,255,0.3);
+  background:rgba(255,255,255,0.35);
   backdrop-filter:blur(14px);
-  border-radius:28px;
+  border-radius:30px;
   padding:26px;
   box-shadow:0 30px 60px rgba(0,0,0,0.2);
 }
@@ -34,13 +34,7 @@ body{
 }
 
 h1{font-size:1.8rem;margin-bottom:10px;}
-h2{font-size:1.2rem;margin-bottom:10px;}
-
-p{
-  font-size:0.95rem;
-  line-height:1.7;
-  margin-bottom:16px;
-}
+p{font-size:0.95rem;line-height:1.7;margin-bottom:16px;}
 
 .btn{
   width:100%;
@@ -49,7 +43,7 @@ p{
   border:none;
   border-radius:30px;
   background:linear-gradient(135deg,#ff4d6d,#ff758f);
-  color:#fff;
+  color:white;
   font-size:1rem;
   cursor:pointer;
   box-shadow:0 10px 25px rgba(255,77,109,0.5);
@@ -61,26 +55,35 @@ p{
   border:2px solid #ff4d6d;
 }
 
-.album{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:10px;
+/* STORY ALBUM */
+.story{margin-top:20px;}
+
+.memory{
+  background:rgba(255,255,255,0.35);
+  border-radius:22px;
+  padding:14px;
+  margin-bottom:18px;
+  box-shadow:0 12px 25px rgba(0,0,0,0.15);
+  animation:fadeUp 0.6s ease;
 }
 
-.album img{
+.memory img{
   width:100%;
-  height:130px;
-  object-fit:cover;
-  border-radius:16px;
-  animation:pop 0.5s ease;
+  border-radius:18px;
+  margin-bottom:12px;
 }
 
-@keyframes pop{
-  from{transform:scale(0.9);opacity:0;}
-  to{transform:scale(1);opacity:1;}
+.memory p{
+  font-size:0.9rem;
+  line-height:1.6;
 }
 
-/* Floating SVGs */
+@keyframes fadeUp{
+  from{opacity:0;transform:translateY(15px);}
+  to{opacity:1;transform:translateY(0);}
+}
+
+/* FLOATING HEARTS */
 .float{
   position:absolute;
   width:20px;
@@ -98,7 +101,7 @@ p{
 
 <body>
 
-<!-- SVG DEFINITIONS -->
+<!-- SVG HEART -->
 <svg width="0" height="0">
 <defs>
 <symbol id="heart" viewBox="0 0 32 29.6">
@@ -114,9 +117,9 @@ C32,3.8,28.2,0,23.6,0z"/>
 
 <!-- HOME -->
 <div class="page active" id="home">
-<h1>Hi Zoya 💖</h1>
+<h1>Love You Baby💖</h1>
 <p>
-This is not just a website.  
+This is not just a website  
 It’s a small corner of my heart,  
 made only for you.
 </p>
@@ -124,7 +127,7 @@ made only for you.
 <button class="btn" onclick="go('letter')">💌 Read My Letter</button>
 <button class="btn" onclick="go('album')">🖼️ Our Memories</button>
 <button class="btn" onclick="go('miss')">🤍 When You Miss Me</button>
-<button class="btn" onclick="go('distance')">🌍 Long Distance Promise</button>
+<button class="btn" onclick="go('distance')"> Promise</button>
 </div>
 
 <!-- LETTER -->
@@ -136,34 +139,75 @@ even from miles away.
 You are that feeling for me.
 </p>
 <p>
-Every day I choose you —  
-in silence, in patience,  
+Every day I choose you,
+in patience, in silence,  
 and in love that grows quietly.
 </p>
 <button class="btn secondary" onclick="go('home')">⬅ Back</button>
 </div>
 
-<!-- ALBUM -->
+<!-- STORY ALBUM -->
 <div class="page" id="album">
-<h1>Our Album 🖼️</h1>
+<h1>Our Memories 🖼️</h1>
 
 <p style="font-style:italic;">
-(This paragraph is for you to edit based on the photos.  
-You can write what this phase meant, what you felt,  
-or why these moments matter 🤍)
+Edit this paragraph freely.  
+Write what these moments meant,  
+what you felt, or why they matter 🤍
 </p>
 
-<div class="album">
+<div class="story">
+
+<div class="memory">
 <img src="photo1.jpg">
+<p>This moment reminds me how naturally you make everything feel easy.</p>
+</div>
+
+<div class="memory">
 <img src="photo2.jpg">
+<p>Your presence in this memory still feels calm and safe.</p>
+</div>
+
+<div class="memory">
 <img src="photo3.jpg">
+<p>Time felt slower here, and I secretly wished it would stay that way.</p>
+</div>
+
+<div class="memory">
 <img src="photo4.jpg">
+<p>I can still hear the laughter when I look at this photo.</p>
+</div>
+
+<div class="memory">
 <img src="photo5.jpg">
+<p>This reminds me that love doesn’t need noise — only honesty.</p>
+</div>
+
+<div class="memory">
 <img src="photo6.jpg">
+<p>I remember thinking how lucky I was to have you.</p>
+</div>
+
+<div class="memory">
 <img src="photo7.jpg">
+<p>Distance didn’t exist in this memory — only warmth.</p>
+</div>
+
+<div class="memory">
 <img src="photo8.jpg">
+<p>Some moments quietly stay forever, like this one.</p>
+</div>
+
+<div class="memory">
 <img src="photo9.jpg">
+<p>This photo holds a feeling my heart understands.</p>
+</div>
+
+<div class="memory">
 <img src="photo10.jpg">
+<p>No matter where life takes us, this will always feel like home.</p>
+</div>
+
 </div>
 
 <button class="btn secondary" onclick="go('home')">⬅ Back</button>
@@ -173,18 +217,14 @@ or why these moments matter 🤍)
 <div class="page" id="miss">
 <h1>When You Miss Me 🤍</h1>
 <p>
-Read this slowly.
-</p>
-<p>
 I’m thinking of you too.  
 I’m proud of you.  
-And I’m staying — even on days  
-when distance feels heavy.
+And I’m staying even when it’s hard.🫂🫂🫂🫂
 </p>
 <p>
 Close your eyes for a moment.  
 That calm you feel?  
-That’s us.
+That’s us.🫂🫂 mera bacha🫂
 </p>
 <button class="btn secondary" onclick="go('home')">⬅ Back</button>
 </div>
@@ -194,7 +234,7 @@ That’s us.
 <h1>Across Miles 🌍</h1>
 <p>
 Distance is not a gap between hearts.  
-It’s just proof that love can wait.
+It’s proof that love can wait.
 </p>
 <p>
 No matter how far we are,  
@@ -203,7 +243,7 @@ and my heart stays loyal.
 </p>
 <p>
 One day this distance  
-will just be a story we smile at 💫
+will just be a story we smile about 💫
 </p>
 <button class="btn secondary" onclick="go('home')">⬅ Back</button>
 </div>
@@ -217,7 +257,7 @@ function go(id){
 }
 
 // floating hearts
-for(let i=0;i<25;i++){
+for(let i=0;i<30;i++){
   let h=document.createElementNS("http://www.w3.org/2000/svg","svg");
   h.classList.add("float");
   h.setAttribute("viewBox","0 0 32 29.6");
@@ -231,4 +271,4 @@ for(let i=0;i<25;i++){
 </script>
 
 </body>
-</html>
+  </html>
